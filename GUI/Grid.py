@@ -51,3 +51,7 @@ class Grid:
         else:
             return None
 
+    def insert(self, key):
+        row, col = self.selected
+        self.boxes[row][col].set_value(key)
+

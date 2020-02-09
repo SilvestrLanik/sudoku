@@ -70,6 +70,10 @@ def main():
                 if clicked:
                     grid.select(clicked[0], clicked[1])
 
+        if grid.selected and key:
+            grid.insert(key)
+            key = None
+
         redraw(game_display, grid)
         pygame.display.update()
 

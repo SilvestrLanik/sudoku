@@ -18,10 +18,7 @@ class Box:
             self.unchangeable = True
 
     def set_value(self, value):
-        if self.unchangeable:
-            return False
         self.value = value
-        return True
 
     def draw(self):
         font = pygame.font.Font("freesansbold.ttf", 45)
@@ -30,7 +27,10 @@ class Box:
         y = self.width * self.row
 
         if self.value != EMPTY:
-            text = font.render(str(self.value), True, WHITE)
+            if self.unchangeable:
+                text = font.render(str(self.value), True, WHITE)
+            else:
+                text = font.render(str(self.value), True, BLUE)
             self.display.blit(text, (x + (self.width/2 - text.get_width()/2), y + (self.width/2 - text.get_height()/2)))
 
         if self.selected:
