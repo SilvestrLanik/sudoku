@@ -18,3 +18,13 @@ class Board:
             print()
             if i % self.square_size == self.square_size - 1:
                 print("-----------------------------------")  # for bigger sudoku it must be rewritten to loop
+
+    def print_board_commas(self):
+        for i in range(self.size):
+            print("[", end='', sep = '')
+            for j in range(self.size):
+                if j != self.size - 1:
+                    print(self.grid[i][j], ", ", end='', sep = '')  # prevent from printing each number on different line
+                else:
+                    print(self.grid[i][j], end='', sep='')
+            print("],")
