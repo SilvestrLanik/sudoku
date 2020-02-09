@@ -11,6 +11,9 @@ class Box:
         self.display = display
         self.width = width
         self.value = value
+        self.selected = False
+        self.unchangeable = False
+
         if value != EMPTY:
             self.unchangeable = True
 
@@ -29,6 +32,9 @@ class Box:
         if self.value != EMPTY:
             text = font.render(str(self.value), True, WHITE)
             self.display.blit(text, (x + (self.width/2 - text.get_width()/2), y + (self.width/2 - text.get_height()/2)))
+
+        if self.selected:
+            pygame.draw.rect(self.display, RED, (x, y, self.width, self.width), 4)
 
 
 

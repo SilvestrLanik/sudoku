@@ -1,4 +1,6 @@
 import pygame
+
+from Sudoku.GUI.Colors import *
 from Sudoku.Logic.constants import SIZE
 from Sudoku.Tests.examples import *
 from Sudoku.Logic.board import Board
@@ -7,6 +9,11 @@ from Sudoku.Logic.solver import Solver
 from Sudoku.GUI.Grid import Grid
 
 pygame.init()
+
+
+def redraw(display, grid):
+    display.fill(BLACK)
+    grid.draw()
 
 def main():
     display_w = 600
@@ -57,6 +64,14 @@ def main():
                 if event.key == pygame.K_RETURN: #enter
                     pass
 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+                clicked = grid.click(pos)
+                if clicked:
+                    grid.select(clicked[0], clicked[1])
+
+        redraw(game_display, grid)
+        pygame.display.update()
 
 main()
 pygame.quit()
