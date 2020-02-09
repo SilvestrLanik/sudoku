@@ -29,8 +29,6 @@ class Grid:
                 self.boxes[i][j].draw()
 
     def select(self, row, col):
-        if self.boxes[row][col].unchangeable:
-            return False
 
         if self.selected:
             old_row = self.selected[0]
@@ -64,7 +62,24 @@ class Grid:
             for j in range(SIZE):
                 if correct_result[i][j] != self.boxes[i][j].value:
                     self.boxes[i][j].correct = False
+                else:
+                    self.boxes[i][j].correct = True
 
+    def move(self, direction):
+        if not self.selected:
+            return
+        row, col = self.selected
 
+        if direction == UP and row - 1 >= 0:
+            self.select(row - 1, col)
+
+        if direction == DOWN and row + 1 <= SIZE - 1:
+            self.select(row + 1, col)
+
+        if direction == RIGHT and col + 1 <= SIZE - 1:
+            self.select(row, col + 1)
+
+        if direction == LEFT and col - 1 >= 0:
+            self.select(row, col - 1)
 
 

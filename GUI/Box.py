@@ -19,7 +19,8 @@ class Box:
             self.unchangeable = True
 
     def set_value(self, value):
-        self.value = value
+        if not self.unchangeable:
+            self.value = value
 
     def draw(self):
         font = pygame.font.Font("freesansbold.ttf", 45)

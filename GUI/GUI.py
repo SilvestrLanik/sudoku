@@ -1,7 +1,7 @@
 import pygame
 
 from Sudoku.GUI.Colors import *
-from Sudoku.Logic.constants import SIZE
+from Sudoku.Logic.constants import *
 from Sudoku.Tests.examples import *
 from Sudoku.Logic.board import Board
 from Sudoku.Logic.solver import Solver
@@ -66,7 +66,22 @@ def main():
                     solver.solve()
                     grid.evaluate(sudoku.grid)
 
-                
+                if event.key == pygame.K_RIGHT:
+                    if grid.selected:
+                        grid.move(RIGHT)
+
+                if event.key == pygame.K_LEFT:
+                    if grid.selected:
+                        grid.move(LEFT)
+
+                if event.key == pygame.K_UP:
+                    if grid.selected:
+                        grid.move(UP)
+
+                if event.key == pygame.K_DOWN:
+                    if grid.selected:
+                        grid.move(DOWN)
+
                 if event.key == pygame.K_SPACE:
                     pass
 
