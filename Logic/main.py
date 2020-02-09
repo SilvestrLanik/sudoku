@@ -1,6 +1,6 @@
 from Sudoku.Tests.examples import *
-from Sudoku.board import Board
-from Sudoku.solver import Solver
+from Sudoku.Logic.board import Board
+from Sudoku.Logic.solver import Solver
 
 
 def main():

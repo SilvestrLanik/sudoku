@@ -1,6 +1,6 @@
 import math
-import numpy as np
-from Sudoku.constants import *
+
+from Sudoku.Logic.constants import *
 
 
 class Board:

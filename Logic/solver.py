@@ -1,4 +1,4 @@
-from Sudoku.constants import *
+from Sudoku.Logic.constants import *
 
 
 class Solver:
