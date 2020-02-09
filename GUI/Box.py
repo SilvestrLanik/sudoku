@@ -11,6 +11,7 @@ class Box:
         self.display = display
         self.width = width
         self.value = value
+        self.correct = True;
         self.selected = False
         self.unchangeable = False
 
@@ -30,7 +31,10 @@ class Box:
             if self.unchangeable:
                 text = font.render(str(self.value), True, WHITE)
             else:
-                text = font.render(str(self.value), True, BLUE)
+                if self.correct:
+                    text = font.render(str(self.value), True, BLUE)
+                else:
+                    text = font.render(str(self.value), True, RED)
             self.display.blit(text, (x + (self.width/2 - text.get_width()/2), y + (self.width/2 - text.get_height()/2)))
 
         if self.selected:

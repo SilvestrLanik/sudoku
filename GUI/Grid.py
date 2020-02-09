@@ -59,3 +59,12 @@ class Grid:
         row, col = self.selected
         self.boxes[row][col].set_value(EMPTY)
 
+    def evaluate(self, correct_result):
+        for i in range(SIZE):
+            for j in range(SIZE):
+                if correct_result[i][j] != self.boxes[i][j].value:
+                    self.boxes[i][j].correct = False
+
+
+
+
