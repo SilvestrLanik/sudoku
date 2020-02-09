@@ -55,3 +55,7 @@ class Grid:
         row, col = self.selected
         self.boxes[row][col].set_value(key)
 
+    def clear(self):
+        row, col = self.selected
+        self.boxes[row][col].set_value(EMPTY)
+

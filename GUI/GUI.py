@@ -57,11 +57,10 @@ def main():
                     key = 8
                 if event.key == pygame.K_9:
                     key = 9
-                if event.key == pygame.K_DELETE:
-                    pass
+                if event.key == pygame.K_BACKSPACE:
+                    if grid.selected:
+                        grid.clear()
                 if event.key == pygame.K_SPACE:
-                    pass
-                if event.key == pygame.K_RETURN: #enter
                     pass
 
             if event.type == pygame.MOUSEBUTTONDOWN:
