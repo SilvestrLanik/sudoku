@@ -1,13 +1,14 @@
 import math
+import numpy as np
 from Sudoku.constants import *
 
 
 class Board:
-    #TODO comment size
+    # size is the maximum value in sudoku. For traditional one it is 9
     def __init__(self, size):
         self.grid = [[EMPTY] * size for i in range(size)]
         self.size = size
-        self.square_size = int(math.sqrt(self.size))  #size of inner square, for traditional sudoku it is 3
+        self.square_size = int(math.sqrt(self.size))  # size of inner square, for traditional sudoku it is 3
 
     def print_board(self):
         for i in range(self.size):
@@ -24,7 +25,8 @@ class Board:
             print("[", end='', sep = '')
             for j in range(self.size):
                 if j != self.size - 1:
-                    print(self.grid[i][j], ", ", end='', sep = '')  # prevent from printing each number on different line
+                    # prevent from printing each number on different line
+                    print(self.grid[i][j], ", ", end='', sep='')
                 else:
                     print(self.grid[i][j], end='', sep='')
             print("],")
