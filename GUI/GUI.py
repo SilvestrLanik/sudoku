@@ -65,6 +65,7 @@ def main():
                 if event.key == pygame.K_RETURN:
                     solver.solve()
                     grid.evaluate(sudoku.grid)
+                
 
                 if event.key == pygame.K_RIGHT:
                     if grid.selected:

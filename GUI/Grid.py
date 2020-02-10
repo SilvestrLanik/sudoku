@@ -52,6 +52,7 @@ class Grid:
     def insert(self, key):
         row, col = self.selected
         self.boxes[row][col].set_value(key)
+        self.boxes[row][col].correct = True
 
     def clear(self):
         row, col = self.selected
@@ -60,7 +61,7 @@ class Grid:
     def evaluate(self, correct_result):
         for i in range(SIZE):
             for j in range(SIZE):
-                if correct_result[i][j] != self.boxes[i][j].value:
+                if correct_result[i][j] != self.boxes[i][j].value and self.boxes[i][j].value != EMPTY:
                     self.boxes[i][j].correct = False
                 else:
                     self.boxes[i][j].correct = True
